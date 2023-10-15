@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/operations';
 // import { getLogIn } from 'redux/selectors';
 
