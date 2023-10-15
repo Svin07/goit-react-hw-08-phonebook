@@ -6,7 +6,6 @@ import { getIsLoggedIn } from 'redux/selectors';
 
 export default function Navigation() {
   const isLoggedIn = useSelector(getIsLoggedIn);
-  console.log(isLoggedIn);
 
   return (
     <div className="">
