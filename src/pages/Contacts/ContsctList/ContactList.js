@@ -1,4 +1,4 @@
-import ContactItem from 'components/ContactItem/ContactItem';
+import ContactItem from 'pages/Contacts/ContactItem/ContactItem';
 
 import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';

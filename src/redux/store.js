@@ -1,17 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-
 import { contactsReducer } from './sliceContacts';
 import { filtersReducer } from './filtersSlice';
-
-
+import { authReducer } from './sliceAuth';
 
 const store = configureStore({
   reducer: {
     contacts: contactsReducer,
     filters: filtersReducer,
+    auth: authReducer,
   },
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         // Ignore these action types
@@ -24,6 +23,4 @@ const store = configureStore({
     }),
 });
 
-
 export default store;
-

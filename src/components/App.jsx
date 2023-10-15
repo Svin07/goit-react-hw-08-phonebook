@@ -1,33 +1,19 @@
-import ContactList from './ContsctList/ContactList';
-import ContactForm from './ContactForm/ContactForm';
-import Filter from './Filter/Filter';
-import Loader from './Loader/Loader';
-import { useSelector } from 'react-redux';
-import { getIsError, getIsLoading } from 'redux/selectors';
+import { Contacts } from 'pages/Contacts/Contacts';
+import { Route, Routes } from 'react-router-dom';
+import Layout from './Layout/Layout';
+import Home from 'pages/Home/Home';
+import NotFound from './NotFound';
+import Register from 'pages/Register/Register';
 
 export function App() {
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getIsError);
-
-  
   return (
-    <div style={{
-          height: 4000,
-          margin: 15,
-          padding: '12px 16px',
-          borderRadius: 4,
-          backgroundColor: 'gray',
-          color: 'white',
-    }}>
-      {isLoading && <Loader />}
-      {error && <h2>{error}</h2>}
-      <h1>Phonebook</h1>
-        <ContactForm />
-        <h2>Contacts</h2>
-        <Filter />
-          <ContactList />
-        </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
-
 }
-
