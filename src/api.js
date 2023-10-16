@@ -31,3 +31,9 @@ export const logOutUser = async token => {
   const data = axios.post('/users/logout', token);
   return data;
 };
+
+export const fetchCurrentUser = async token => {
+  const data = axios.post('/users/current', token);
+  console.log(data);
+  return data;
+};

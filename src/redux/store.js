@@ -4,23 +4,37 @@ import { contactsReducer } from './sliceContacts';
 import { filtersReducer } from './filtersSlice';
 import { authReducer } from './sliceAuth';
 
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
+
 const store = configureStore({
   reducer: {
     contacts: contactsReducer,
     filters: filtersReducer,
-    auth: authReducer,
+    auth: persistReducer(authPersistConfig, authReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
-        // Ignore these action types
-        ignoredActions: ['your/action/type'],
-        // Ignore these field paths in all actions
-        ignoredActionPaths: ['meta.arg', 'payload.timestamp'],
-        // Ignore these paths in the state
-        ignoredPaths: ['items.dates'],
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
 });
 
 export default store;
+export const persistor = persistStore(store);

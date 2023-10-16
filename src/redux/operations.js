@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   addContact,
   deleteContact,
+  fetchCurrentUser,
   getAllContacts,
   logInUser,
   logOutUser,
@@ -90,6 +91,26 @@ export const logOut = createAsyncThunk(
     try {
       const { data } = await logOutUser(token);
       // token.unset();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const refreshUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, { rejectWithValue, getState }) => {
+    const persistedToken = getState().auth.token;
+    if (!persistedToken) {
+      console.log('токен пустий');
+      return;
+    }
+    token.set(persistedToken);
+    try {
+      const { data } = await fetchCurrentUser(token);
+      console.log(data);
+
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

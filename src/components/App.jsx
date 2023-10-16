@@ -4,8 +4,17 @@ import Layout from './Layout/Layout';
 import Home from 'pages/Home/Home';
 import NotFound from './NotFound';
 import Register from 'pages/Register/Register';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { refreshUser } from 'redux/operations';
 
 export function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
