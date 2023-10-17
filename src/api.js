@@ -33,7 +33,6 @@ export const logOutUser = async token => {
 };
 
 export const fetchCurrentUser = async token => {
-  const data = axios.post('/users/current', token);
-  console.log(data);
+  const data = axios.get('/users/current', token);
   return data;
 };

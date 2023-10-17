@@ -90,7 +90,7 @@ export const logOut = createAsyncThunk(
   async (token, { rejectWithValue }) => {
     try {
       const { data } = await logOutUser(token);
-      // token.unset();
+
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -103,14 +103,12 @@ export const refreshUser = createAsyncThunk(
   async (_, { rejectWithValue, getState }) => {
     const persistedToken = getState().auth.token;
     if (!persistedToken) {
-      console.log('токен пустий');
-      return;
+      return rejectWithValue();
     }
+
     token.set(persistedToken);
     try {
       const { data } = await fetchCurrentUser(token);
-      console.log(data);
-
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

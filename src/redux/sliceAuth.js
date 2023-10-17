@@ -18,6 +18,14 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
+const handleGetLogin = (state, action) => {
+  state.isLoading = false;
+  state.error = null;
+  state.user = action.payload.user;
+  state.token = action.payload.token;
+  state.isLoggedIn = true;
+};
+
 const sliceAuth = createSlice({
   name: 'auth',
   initialState,
@@ -25,22 +33,10 @@ const sliceAuth = createSlice({
     builder
       .addCase(register.pending, handlePending)
 
-      .addCase(register.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isLoggedIn = true;
-      })
+      .addCase(register.fulfilled, handleGetLogin)
       .addCase(register.rejected, handleRejected)
       .addCase(logIn.pending, handlePending)
-      .addCase(logIn.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isLoggedIn = true;
-      })
+      .addCase(logIn.fulfilled, handleGetLogin)
       .addCase(logIn.rejected, handleRejected)
       .addCase(logOut.pending, handlePending)
 
@@ -55,8 +51,8 @@ const sliceAuth = createSlice({
       .addCase(refreshUser.pending, handlePending)
 
       .addCase(refreshUser.fulfilled, (state, action) => {
-        // state.user = action.payload;
-        // state.isLoggedIn = true;
+        state.user = action.payload;
+        state.isLoggedIn = true;
       })
       .addCase(refreshUser.rejected, handleRejected);
   },
