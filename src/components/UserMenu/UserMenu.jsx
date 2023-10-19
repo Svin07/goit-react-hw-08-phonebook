@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/operations';
 import { getUserName } from 'redux/selectors';
 import defaultAvatar from './free-icon-hacker-924915.png';
+import { Button, Flex, Spacer } from '@chakra-ui/react';
 
 export default function UserMenu() {
   const dispatch = useDispatch();
@@ -13,12 +14,14 @@ export default function UserMenu() {
   };
 
   return (
-    <div>
+    <Flex justifyContent="end" alignItems="center">
       <img src={avatar} alt="avatar" width="32" />
+      <Spacer w="4" />
       <p>Hello, {name}!</p>
-      <button type="button" onClick={handlyClick}>
+      <Spacer w="4" />
+      <Button type="button" onClick={handlyClick} colorScheme="blackAlpha">
         Logout
-      </button>
-    </div>
+      </Button>
+    </Flex>
   );
 }

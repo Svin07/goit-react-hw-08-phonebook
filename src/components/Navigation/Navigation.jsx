@@ -1,3 +1,4 @@
+import { Flex, Spacer } from '@chakra-ui/react';
 import AuthNav from 'components/AuthNav/AuthNav';
 import UserMenu from 'components/UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
@@ -8,10 +9,12 @@ export default function Navigation() {
   const isLoggedIn = useSelector(getIsLoggedIn);
 
   return (
-    <div className="">
+    <Flex justifyContent="space-between" alignItems="center">
       <Link to="/">Home</Link>
+      <Spacer />
       <Link to="Contacts">Contacts</Link>
+      <Spacer w="40" />
       {isLoggedIn ? <UserMenu /> : <AuthNav />}
-    </div>
+    </Flex>
   );
 }

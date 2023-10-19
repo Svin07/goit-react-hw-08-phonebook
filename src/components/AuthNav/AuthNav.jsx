@@ -1,10 +1,12 @@
+import { Flex, Spacer } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
 export default function AuthNav() {
   return (
-    <div className="">
+    <Flex justifyContent="end" alignItems="center">
       <Link to="/register">Registration</Link>
+      <Spacer w="20" />
       <Link to="/">Log in</Link>
-    </div>
+    </Flex>
   );
 }
