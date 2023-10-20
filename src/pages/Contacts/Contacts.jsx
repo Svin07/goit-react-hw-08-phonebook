@@ -3,30 +3,34 @@ import ContactForm from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
 import Loader from './Loader/Loader';
 import { useSelector } from 'react-redux';
-import { getIsError, getIsLoading } from 'redux/selectors';
+import { getIsErrorContacts, getIsLoading } from 'redux/selectors';
+import { Box, Heading, useColorMode } from '@chakra-ui/react';
+import Message from 'components/Message/Message';
 
 export function Contacts() {
   const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getIsError);
+  const error = useSelector(getIsErrorContacts);
+  const { colorMode } = useColorMode();
 
   return (
-    <div
-      style={{
-        height: 4000,
-        margin: 15,
-        padding: '12px 16px',
-        borderRadius: 4,
-        backgroundColor: 'gray',
-        color: 'white',
-      }}
+    <Box
+      h="100%"
+      m="2"
+      p="8"
+      borderRadius="md"
+      bg={colorMode === 'dark' ? 'brand.200' : 'brand.300'}
     >
       {isLoading && <Loader />}
-      {error && <h2>{error}</h2>}
-      <h1>Phonebook</h1>
+      {error && <Message text={error} />}
+      <Heading size="xl">Phonebook</Heading>
+
       <ContactForm />
-      <h2>Contacts</h2>
+      <Heading mt="8" size="xl">
+        Contacts
+      </Heading>
+
       <Filter />
       <ContactList />
-    </div>
+    </Box>
   );
 }

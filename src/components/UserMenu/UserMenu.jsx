@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/operations';
 import { getUserName } from 'redux/selectors';
-import defaultAvatar from './free-icon-hacker-924915.png';
+import defaultAvatar from '../../images/free-icon-hacker-924915.png';
 import { Button, Flex, Spacer } from '@chakra-ui/react';
 
 export default function UserMenu() {

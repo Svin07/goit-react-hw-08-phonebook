@@ -1,9 +1,0 @@
-.contactlist {
-  list-style: none;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  font-size: 40px;
-  color: #010101;
-  padding: 0;
-}

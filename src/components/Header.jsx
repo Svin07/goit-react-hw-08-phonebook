@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import Navigation from './Navigation/Navigation';
-import defaultLogo from './contacts.png';
+import defaultLogo from '../images/contacts.png';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { Box, Container, Flex, useColorMode } from '@chakra-ui/react';
+
 export default function Header() {
   const logo = defaultLogo;
   const { colorMode } = useColorMode();
