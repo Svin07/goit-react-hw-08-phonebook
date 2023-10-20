@@ -1,10 +1,19 @@
 import { Flex, Spacer } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+
+const StyledLink = styled(NavLink)`
+  color: gray.900;
+
+  &.active {
+    color: orange;
+  }
+`;
 
 export default function AuthNav() {
   return (
     <Flex justifyContent="end" alignItems="center">
-      <Link to="/register">Registration</Link>
+      <StyledLink to="/register">Registration</StyledLink>
       <Spacer w="20" />
       <Link to="/">Log in</Link>
     </Flex>
