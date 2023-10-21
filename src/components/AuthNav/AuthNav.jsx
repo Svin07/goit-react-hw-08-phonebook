@@ -1,5 +1,5 @@
 import { Flex, Spacer } from '@chakra-ui/react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledLink = styled(NavLink)`
@@ -15,7 +15,6 @@ export default function AuthNav() {
     <Flex justifyContent="end" alignItems="center">
       <StyledLink to="/register">Registration</StyledLink>
       <Spacer w="20" />
-      {/* <Link to="/">Log in</Link> */}
     </Flex>
   );
 }
