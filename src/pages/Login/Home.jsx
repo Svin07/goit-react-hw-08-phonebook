@@ -18,6 +18,7 @@ import {
 import { Link } from 'react-router-dom';
 import Message from 'components/Message/Message';
 import Loader from 'components/Loader/Loader';
+// import qwe from 'images/old-telephone.png';
 
 const Home = () => {
   const name = useSelector(getUserName);
@@ -34,14 +35,10 @@ const Home = () => {
           <LogIn />
         ) : (
           <Box
-            h="400px"
-            // bgImage="url('/src/images/old-telephone.png')"
-            style={{
-              backgroundImage:
-                'url(/src/images/old-telephone.png),linear-gradient(106.61deg, #F8E1EC 0%, #68D391 100%)',
-            }}
-            backgroundPosition="center"
-            backgroundRepeat="no-repeat"
+            h="800px"
+            bgGradient="linear(106.61deg, #F8E1EC 0%, #68D391 100%)"
+            // bgImage={`url('${qwe}')`}
+            // opacity="60%"
           >
             <Center p="5" h="100px">
               <Heading size="xl">This is the home page of the site</Heading>
