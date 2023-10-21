@@ -19,9 +19,14 @@ export default function Navigation() {
 
   return (
     <Flex justifyContent="space-between" alignItems="center">
-      <StyledLink to="/">Home</StyledLink>
+      {isLoggedIn ? (
+        <StyledLink to="/">Home</StyledLink>
+      ) : (
+        <StyledLink to="/">Login</StyledLink>
+      )}
+
       <Spacer />
-      <StyledLink to="Contacts">Contacts</StyledLink>
+      {isLoggedIn && <StyledLink to="Contacts">Contacts</StyledLink>}
       <Spacer w="40" />
       {isLoggedIn ? <UserMenu /> : <AuthNav />}
     </Flex>

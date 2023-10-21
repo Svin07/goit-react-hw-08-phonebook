@@ -15,7 +15,7 @@ export default function AuthNav() {
     <Flex justifyContent="end" alignItems="center">
       <StyledLink to="/register">Registration</StyledLink>
       <Spacer w="20" />
-      <Link to="/">Log in</Link>
+      {/* <Link to="/">Log in</Link> */}
     </Flex>
   );
 }

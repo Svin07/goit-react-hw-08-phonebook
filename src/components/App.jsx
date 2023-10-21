@@ -1,7 +1,7 @@
 import { Contacts } from 'pages/Contacts/Contacts';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout/Layout';
-import Home from 'pages/Home/Home';
+import Home from 'pages/Login/Home';
 import NotFound from './NotFound';
 import Register from 'pages/Register/Register';
 import { useDispatch } from 'react-redux';

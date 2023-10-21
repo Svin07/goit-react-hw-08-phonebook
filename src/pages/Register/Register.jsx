@@ -9,7 +9,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import Message from 'components/Message/Message';
-import Loader from 'pages/Contacts/Loader/Loader';
+import Loader from 'components/Loader/Loader';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -41,6 +41,9 @@ export default function Register() {
 
   const handlySubmit = e => {
     e.preventDefault();
+    if (!name || !email || !password) {
+      return;
+    }
     dispatch(register({ name, email, password }));
     setName('');
     setEmail('');

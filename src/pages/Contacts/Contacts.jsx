@@ -1,7 +1,7 @@
-import ContactList from './ContsctList/ContactList';
-import ContactForm from './ContactForm/ContactForm';
-import Filter from './Filter/Filter';
-import Loader from './Loader/Loader';
+import ContactList from '../../components/ContsctList/ContactList';
+import ContactForm from '../../components/ContactForm/ContactForm';
+import Filter from '../../components/Filter/Filter';
+import Loader from '../../components/Loader/Loader';
 import { useSelector } from 'react-redux';
 import { getIsErrorContacts, getIsLoading } from 'redux/selectors';
 import { Box, Heading, useColorMode } from '@chakra-ui/react';

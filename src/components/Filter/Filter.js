@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import { addFilter } from 'redux/filtersSlice';
+import { addFilter } from 'redux/Contacts/filtersSlice';
 import {
   Input,
   InputGroup,

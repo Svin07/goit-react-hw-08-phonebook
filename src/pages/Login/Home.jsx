@@ -17,7 +17,7 @@ import {
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import Message from 'components/Message/Message';
-import Loader from 'pages/Contacts/Loader/Loader';
+import Loader from 'components/Loader/Loader';
 
 const Home = () => {
   const name = useSelector(getUserName);
